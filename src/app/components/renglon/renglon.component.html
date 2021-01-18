@@ -1,7 +1,22 @@
 
-<div class="container">
-    <li *ngFor="let usuario of usuarioArray" 
-    class="list-group-item list-group-item-action">
-        {{usuario.nombre}} - {{usuario.apellidoPaterno}} - {{usuario.apellidoMaterno}} - {{usuario.edad}} - {{usuario.sexo}}
-        </li>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <div *ngIf="mostrar">
+                    <div (click)="onClick(usuario)" *ngFor="let usuario of usuarioArray"
+                        class="list-group-item list-group-item-action">
+                        <div>{{usuario.nombre}}</div>
+                    </div>
+                </div>
+                <div class="container mt-2">
+                    <button type="button" class="btn btn-primary" (click)="mostrar=true"> Mostrar </button>
+                    <button type="button" class="btn btn-danger" (click)="mostrar=false"> Ocultar </button>
+                </div>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <app-persona-detalle [usuario]="usuario" (cerrar)="cerrarDetalles()"></app-persona-detalle>
+        </div>
+    </div>
 </div>
