@@ -12,12 +12,24 @@ export class PersonaDetalleComponent implements OnInit {
   @Output() cerrar = new EventEmitter();
 
   constructor() { }
-
+  bandera;
   ngOnInit(): void {
   }
 
   Cerrar(){
     this.cerrar.emit();
+  }
+
+  Ocultar()
+  {
+    if(this.bandera == false)
+    {
+      this.bandera = true;
+    }
+    else
+    {
+      this.bandera = false;
+    }
   }
 
   mostrar = false;
